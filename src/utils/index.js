@@ -52,7 +52,7 @@ export const getWeatherIcon = (icon) => {
   }
 };
 
-export const getWeatherBg = (icon) => {
+export const getWeatherBackground = (icon) => {
   switch (icon) {
     case "Clear":
       return Clear;

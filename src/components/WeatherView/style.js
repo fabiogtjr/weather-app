@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Grid } from "@material-ui/core";
 
 export const ContainerGrid = styled(Grid)`
@@ -7,7 +7,7 @@ export const ContainerGrid = styled(Grid)`
   margin: 0 auto;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(https://s.w-x.co/WeatherImages_Web/WeatherImage_MostlyCloudy-night_1.jpg?crop=16:9&width=800&format=pjpg&auto=webp&quality=70);
+  background-image: ${({ bg }) => bg && `url(${bg})`};
   padding-bottom: 5px;
 `;
 

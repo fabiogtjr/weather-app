@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
 import ReactAnimatedWeather from "react-animated-weather/build/ReactAnimatedWeather";
-import { getWeatherIcon } from "../../utils";
+import { getWeatherBackground, getWeatherIcon } from "../../utils";
 
 import { ContainerGrid, IconGrid, LocaleGrid, WeatherDataGrid } from "./style";
 
@@ -16,9 +16,10 @@ export const WeatherView = ({
   main: icon,
 }) => {
   const weatherIcon = getWeatherIcon(icon);
+  const bg = getWeatherBackground(icon);
 
   return (
-    <ContainerGrid container>
+    <ContainerGrid bg={bg} container>
       <LocaleGrid item xs={12}>
         <Typography>
           {cityName}, {country}
@@ -39,7 +40,7 @@ export const WeatherView = ({
         </Typography>
       </WeatherDataGrid>
       <IconGrid item xs={3}>
-        <ReactAnimatedWeather {...weatherIcon} size="80" animate={true} />
+        <ReactAnimatedWeather {...weatherIcon} size={80} animate={true} />
       </IconGrid>
     </ContainerGrid>
   );
