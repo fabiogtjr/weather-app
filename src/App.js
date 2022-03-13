@@ -12,7 +12,7 @@ const App = () => {
       ({ code }) => {
         if (code === 1) {
           setLoading(false);
-          alert("Esse site precisa de permissões de localização!");
+          alert("This website needs geolocation permissions!");
         }
       }
     );
@@ -29,20 +29,19 @@ const App = () => {
     <div>
       <header>
         {loading ? (
-          "Carregando..."
+          "Loading..."
         ) : (
           <>
             {weather ? (
               <>
-                Olá, está {Math.round(weather?.temp)}º em {weather?.cityName} -{" "}
-                {weather?.country}, sensação termica de{" "}
-                {Math.round(weather?.feels_like)}º, com previsão de maxima
-                entorno de {Math.round(weather?.temp_max)}º e minima{" "}
-                {Math.round(weather?.temp_min)}º, com previsão de{" "}
-                {weather?.description}
+                Hello, the weather today is {Math.round(weather?.temp)}ºC in{" "}
+                {weather?.cityName} - {weather?.country},{" "}
+                {Math.round(weather?.feels_like)}ºC feels like, max temp, and{" "}
+                {Math.round(weather?.temp_max)}ºC min temp{" "}
+                {Math.round(weather?.temp_min)}ºC, {weather?.description}
               </>
             ) : (
-              "Erro ao carregar localização, tente novamente!"
+              "Error loading locale, try again later!"
             )}
           </>
         )}
