@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Container } from "@material-ui/core";
+import { CircularProgress, Container } from "@material-ui/core";
 import { getWeather } from "./actions/weather";
 
 import { WeatherView } from "./components/WeatherView";
@@ -30,23 +30,27 @@ const App = () => {
   };
 
   return (
-    <div>
+    <Container>
       {loading ? (
-        "Loading..."
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: "10px",
+          }}
+        >
+          <CircularProgress />
+        </div>
       ) : (
         <>
           {weather ? (
-            <>
-              <Container>
-                <WeatherView {...weather} />
-              </Container>
-            </>
+            <WeatherView {...weather} />
           ) : (
             "Error loading locale, try again later!"
           )}
         </>
       )}
-    </div>
+    </Container>
   );
 };
 
