@@ -1,11 +1,9 @@
-import "./App.css";
+import React from "react";
 
 const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        Olá Mundo!
-      </header>
+      <header className="App-header">Olá Mundo!</header>
     </div>
   );
 };
