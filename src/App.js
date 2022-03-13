@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
+
+import { Container } from "@material-ui/core";
 import { getWeather } from "./actions/weather";
+
+import { WeatherView } from "./components/WeatherView";
 
 const App = () => {
   const [weather, setWeather] = useState();
@@ -27,25 +31,21 @@ const App = () => {
 
   return (
     <div>
-      <header>
-        {loading ? (
-          "Loading..."
-        ) : (
-          <>
-            {weather ? (
-              <>
-                Hello, the weather today is {Math.round(weather?.temp)}ºC in{" "}
-                {weather?.cityName} - {weather?.country},{" "}
-                {Math.round(weather?.feels_like)}ºC feels like, max temp, and{" "}
-                {Math.round(weather?.temp_max)}ºC min temp{" "}
-                {Math.round(weather?.temp_min)}ºC, {weather?.description}
-              </>
-            ) : (
-              "Error loading locale, try again later!"
-            )}
-          </>
-        )}
-      </header>
+      {loading ? (
+        "Loading..."
+      ) : (
+        <>
+          {weather ? (
+            <>
+              <Container>
+                <WeatherView {...weather} />
+              </Container>
+            </>
+          ) : (
+            "Error loading locale, try again later!"
+          )}
+        </>
+      )}
     </div>
   );
 };
